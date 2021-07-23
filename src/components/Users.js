@@ -15,7 +15,7 @@ function Users() {
       <ul>
         {fetchedData.data ? (
           fetchedData.data.map((data) => (
-            <li>
+            <li key={data.id}>
               <NavLink to={`/userdetails/${data.id}`}>{data.name}</NavLink>
             </li>
           ))

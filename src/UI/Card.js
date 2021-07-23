@@ -2,9 +2,9 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div class="card">
-      <div class="card-content">
-        <div class="content">
+    <div className="card">
+      <div className="card-content">
+        <div className="content">
           <h2>{props.name}</h2>
           <p>{props.email}</p>
           <p>{props.gender}</p>
