@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getData, getPostData } from "../store/crudSlice";
+import { getUserData, getPostData } from "../store/crudSlice";
 import { NavLink } from "react-router-dom";
 
 function Users() {
   const dispatch = useDispatch();
   const fetchedData = useSelector((state) => state.crud.users);
   if (!fetchedData.data) {
-    dispatch(getData());
+    dispatch(getUserData());
     dispatch(getPostData());
   }
 
