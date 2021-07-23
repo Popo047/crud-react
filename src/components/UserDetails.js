@@ -8,10 +8,7 @@ function UserDetails(props) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const userDetails = useSelector((state) => state.crud.users);
-  console.log({
-    id,
-    userDetails,
-  });
+
   const loading = useSelector((state) => state.crud.loading);
 
   const userDetail = userDetails.data.find((ud) => ud.id == id);

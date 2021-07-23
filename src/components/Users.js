@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getData } from "../store/crudSlice";
+import { getData, getPostData } from "../store/crudSlice";
 import { NavLink } from "react-router-dom";
 
 function Users() {
@@ -8,8 +8,9 @@ function Users() {
   const fetchedData = useSelector((state) => state.crud.users);
   if (!fetchedData.data) {
     dispatch(getData());
+    dispatch(getPostData());
   }
-  console.log(fetchedData);
+
   return (
     <>
       <ul>
@@ -17,6 +18,12 @@ function Users() {
           fetchedData.data.map((data) => (
             <li key={data.id}>
               <NavLink to={`/userdetails/${data.id}`}>{data.name}</NavLink>
+
+              <a href={`mailto:${data.email}`}>
+                <span class="icon">
+                  <i class="fas fa-home"></i>
+                </span>
+              </a>
             </li>
           ))
         ) : (

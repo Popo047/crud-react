@@ -1,20 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { crudActions } from "../store/crudSlice";
+import { crudActions, getPostData } from "../store/crudSlice";
+import Card from "../UI/Card";
 
 function UserPost(props) {
-  const dispatch = useDispatch();
-  const postList = useSelector((state) => state.crud.posts);
+  const postLists = useSelector((state) => state.crud.posts);
+  const loading = useSelector((state) => state.crud.loading);
 
-  useEffect(() => {
-    fetch("https://gorest.co.in/public/v1/posts")
-      .then((response) => response.json())
-      .then((data) => dispatch(crudActions.storePosts(data)));
-  }, []);
-
+  const postList = postLists.data.filter((pId) => pId.user_id == props.id);
   console.log(props.id);
-  console.log(postList);
-  return <div></div>;
+  console.log(postLists);
+  console.log("PostList", postList);
+  return (
+    <>
+      <div>
+        {postList ? (
+          <ul>
+            {postList.map((post) => (
+              <li>{post.title}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </>
+  );
 }
 
 export default UserPost;
