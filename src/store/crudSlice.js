@@ -9,7 +9,7 @@ export const getData = createAsyncThunk("crud/getData", async () => {
 
 const crudSlice = createSlice({
   name: "crud",
-  initialState: { users: [], loading: true },
+  initialState: { users: [], loading: true, posts: [] },
   reducers: {
     storeData(state, action) {
       state.users = action.payload;
@@ -18,6 +18,10 @@ const crudSlice = createSlice({
     },
     loadingState(state) {
       state.loading = !state.loading;
+    },
+    storePosts(state, action) {
+      state.posts = action.payload;
+      state.showPosts = true;
     },
   },
   extraReducers: {
