@@ -1,12 +1,24 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { crudActions } from "../store/crudSlice";
+import { getData } from "../store/crudSlice";
+import { NavLink } from "react-router-dom";
 
 function Users() {
   const dispatch = useDispatch();
+  const fetchedData = useSelector((state) => state.crud.users);
+  if (!fetchedData.data) {
+    dispatch(getData());
+  }
+  console.log(fetchedData);
   return (
     <>
-      <h1>Users</h1>
+      <ul>
+        {fetchedData.data ? (
+          fetchedData.data.map((data) => <li key={data.id}>{data.name}</li>)
+        ) : (
+          <p>Loading</p>
+        )}
+      </ul>
     </>
   );
 }

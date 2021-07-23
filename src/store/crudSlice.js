@@ -1,11 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  loading: true,
-  users: [],
-};
-
-const getData = createAsyncThunk("crud/getData", async () => {
+export const getData = createAsyncThunk("crud/getData", async () => {
   const response = await fetch("https://gorest.co.in/public/v1/users");
   const returnedData = await response.json();
 
@@ -14,26 +9,27 @@ const getData = createAsyncThunk("crud/getData", async () => {
 
 const crudSlice = createSlice({
   name: "crud",
-  initialState,
+  initialState: { users: [], loading: true },
   reducers: {
-    loaded(state) {
-      state.loading = !state.loading;
-    },
     storeData(state, action) {
       state.users = action.payload;
       state.loading = false;
+      // console.log(state.users);
+    },
+    loadingState(state) {
+      state.loading = !state.loading;
     },
   },
   extraReducers: {
     [getData.pending]: (state) => {
       state.loading = true;
     },
-    [getData.success]: (state, action) => {
+    [getData.fulfilled]: (state, action) => {
       state.users = action.payload;
       state.loading = false;
     },
     [getData.rejected]: (state) => {
-      state.loading = false;
+      state.loading = true;
     },
   },
 });
