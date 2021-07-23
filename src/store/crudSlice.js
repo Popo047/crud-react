@@ -8,7 +8,18 @@ const initialState = {
 const crudSlice = createSlice({
   name: "crud",
   initialState,
-  reducers: {},
+  reducers: {
+    loaded(state) {
+      state.loading = !state.loading;
+    },
+    storeData(state, action) {
+      state.users = action.payload;
+      state.loading = false;
+    },
+  },
+  extraReducers: {},
 });
+
+export const crudActions = crudSlice.actions;
 
 export default crudSlice.reducer;

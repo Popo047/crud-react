@@ -6,3 +6,5 @@ const store = configureStore({
     crud: crudReducer,
   },
 });
+
+export default store;
