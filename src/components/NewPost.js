@@ -7,7 +7,7 @@ function NewPost(props) {
   const titleRef = useRef();
   const descriptionRef = useRef();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const enteredId = idRef.current.value;
     const enteredUserId = userIdRef.current.value;
@@ -20,8 +20,22 @@ function NewPost(props) {
       title: enteredTitle,
       body: enteredDesc,
     };
-    // props.onAddPost(data);
+    const response = await fetch(
+      `https://gorest.co.in/public/v1/users/${data.user_id}/posts`,
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer 991f16ee2a02e95b9579c9167b32a435016cfd16ed7a0fc07149fe64a47c12d7",
+        },
+      }
+    );
+    const dataa = await response.json();
+    console.log(dataa);
   };
+  console.log(props);
   return (
     <>
       <form action="" onSubmit={submitHandler}>
