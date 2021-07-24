@@ -1,34 +1,47 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 
-function NewPost() {
+function NewPost(props) {
+  const idRef = useRef();
+  const userIdRef = useRef();
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const enteredId = idRef.current.value;
+    const enteredUserId = userIdRef.current.value;
+    const enteredTitle = titleRef.current.value;
+    const enteredDesc = descriptionRef.current.value;
+
+    const data = {
+      id: enteredId,
+      user_id: enteredUserId,
+      title: enteredTitle,
+      body: enteredDesc,
+    };
+    // props.onAddPost(data);
+  };
   return (
-    <div className="container" style={{ maxWidth: "300px" }}>
-      <div className="field">
-        <label className="label">Name</label>
-        <div className="control">
-          <input className="input" type="text" placeholder="Text input" />
-        </div>
-      </div>
-      <div className="field">
-        <label className="label">Email</label>
-        <div className="control has-icons-left has-icons-right">
-          <input
-            className="input is-danger"
-            type="email"
-            placeholder="Email input"
-            value="hello@"
-          />
-          <span className="icon is-small is-left">
-            <i className="fas fa-envelope"></i>
-          </span>
-          <span className="icon is-small is-right">
-            <i className="fas fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <p className="help is-danger">This email is invalid</p>
-      </div>
-    </div>
+    <>
+      <form action="" onSubmit={submitHandler}>
+        <label htmlFor="">Enter ID</label>
+        <input type="number" ref={idRef} />
+        <label htmlFor="">U_ID</label>
+        <input type="number" ref={userIdRef} />
+        <label htmlFor="">Title </label>
+        <input type="text" ref={titleRef} />
+        <label htmlFor="">Post Description</label>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          ref={descriptionRef}
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 }
 

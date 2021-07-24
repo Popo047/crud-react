@@ -23,8 +23,6 @@ export const postData = createAsyncThunk("crud/postData", async () => {
       },
     }
   );
-  const returnedData = await response.json();
-  return returnedData;
 });
 
 const crudSlice = createSlice({
@@ -53,13 +51,13 @@ const crudSlice = createSlice({
       state.loading = false;
       state.posts = action.payload;
     },
-    [postData.pending]: (state) => {
-      state.loading = true;
-    },
-    [postData.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.newPosts = action.payload;
-    },
+    // [postData.pending]: (state) => {
+    //   state.loading = true;
+    // },
+    // [postData.fulfilled]: (state, action) => {
+    //   state.loading = false;
+    //   state.newPosts = action.payload;
+    // },
   },
 });
 
