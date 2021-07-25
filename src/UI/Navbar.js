@@ -3,20 +3,21 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+    <nav className="navbar" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
+        <a className="navbar-item" href="https://bulma.io">
           <img
             src="https://bulma.io/images/bulma-logo.png"
+            alt="Bulma"
             width="112"
             height="28"
           />
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <Link to="/newpost" class="navbar-item">
+      <div id="navbarBasicExample" className="navbar-menu">
+        <div className="navbar-start">
+          <Link to="/newpost" className="navbar-item">
             NewPost
           </Link>
         </div>
