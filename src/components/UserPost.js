@@ -14,7 +14,7 @@ function UserPost(props) {
         {postList ? (
           <ul>
             {postList.map((post) => (
-              <Card key={post.id} name={post.title} email={post.body} />
+              <Card key={post.id} name={post.title} gender={post.body} />
             ))}
           </ul>
         ) : null}

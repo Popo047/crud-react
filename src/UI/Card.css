@@ -1,5 +1,7 @@
 .card-container {
   /* width: 500px; */
+  /* align-items: center; */
+  max-width: 800px;
   overflow: hidden;
   padding: 0;
   transition: 0.3s;
