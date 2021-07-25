@@ -8,9 +8,6 @@ function UserPost(props) {
   const postList = postLists.data.filter(
     (pId) => pId.user_id.toString() === props.id
   );
-
-  console.log(postLists);
-  console.log("PostList", postList);
   return (
     <>
       <div>

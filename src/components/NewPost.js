@@ -32,9 +32,7 @@ function NewPost(props) {
       }
     );
     const dataa = await response.json();
-    console.log(dataa);
   };
-  console.log(props);
   return (
     <>
       <form
@@ -43,14 +41,11 @@ function NewPost(props) {
         className="container"
         style={{ maxWidth: "500px" }}
       >
-        <label htmlFor="" className="label">
-          Enter ID
-        </label>
         <div className="control">
           <input className="input" type="number" ref={idRef} />
         </div>
         <label htmlFor="" className="label">
-          U_ID
+          USER_ID
         </label>
         <div className="control">
           <input type="number" className="input" ref={userIdRef} />
