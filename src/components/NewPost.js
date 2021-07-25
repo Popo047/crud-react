@@ -42,9 +42,6 @@ function NewPost(props) {
         className="container"
         style={{ maxWidth: "500px" }}
       >
-        <div className="control">
-          <input className="input" type="number" ref={idRef} />
-        </div>
         <label htmlFor="" className="label">
           USER_ID
         </label>
