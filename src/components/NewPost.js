@@ -31,6 +31,8 @@ function NewPost(props) {
         },
       }
     );
+    const dataa = await response.json();
+    console.log(dataa);
   };
   return (
     <>
