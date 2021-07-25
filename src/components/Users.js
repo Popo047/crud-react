@@ -20,8 +20,8 @@ function Users() {
               <NavLink to={`/userdetails/${data.id}`}>{data.name}</NavLink>
 
               <a href={`mailto:${data.email}`}>
-                <span class="icon">
-                  <i class="fas fa-home"></i>
+                <span className="icon">
+                  <i className="fas fa-home"></i>
                 </span>
               </a>
             </li>

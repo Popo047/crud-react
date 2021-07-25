@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { useSelector } from "react-redux";
 
 function NewPost(props) {
   const idRef = useRef();
@@ -38,22 +37,47 @@ function NewPost(props) {
   console.log(props);
   return (
     <>
-      <form action="" onSubmit={submitHandler}>
-        <label htmlFor="">Enter ID</label>
-        <input type="number" ref={idRef} />
-        <label htmlFor="">U_ID</label>
-        <input type="number" ref={userIdRef} />
-        <label htmlFor="">Title </label>
-        <input type="text" ref={titleRef} />
-        <label htmlFor="">Post Description</label>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          ref={descriptionRef}
-        ></textarea>
-        <button type="submit">Submit</button>
+      <form
+        action=""
+        onSubmit={submitHandler}
+        className="container"
+        style={{ maxWidth: "500px" }}
+      >
+        <label htmlFor="" className="label">
+          Enter ID
+        </label>
+        <div className="control">
+          <input className="input" type="number" ref={idRef} />
+        </div>
+        <label htmlFor="" className="label">
+          U_ID
+        </label>
+        <div className="control">
+          <input type="number" className="input" ref={userIdRef} />
+        </div>
+        <label htmlFor="" className="label">
+          Title{" "}
+        </label>
+        <div className="control">
+          <input type="text" className="input" ref={titleRef} />
+        </div>
+        <label htmlFor="" className="label">
+          Post Description
+        </label>
+        <div className="control">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            className="textarea"
+            ref={descriptionRef}
+          ></textarea>{" "}
+        </div>
+        <br />
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </>
   );

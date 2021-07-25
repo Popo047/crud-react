@@ -2,7 +2,7 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div className="card">
+    <div className="card container " style={{ maxWidth: "800px" }}>
       <div className="card-content">
         <div className="content">
           <h2>{props.name}</h2>

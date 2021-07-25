@@ -1,12 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Card from "../UI/Card";
 
 function UserPost(props) {
   const postLists = useSelector((state) => state.crud.posts);
 
   const postList = postLists.data.filter((pId) => pId.user_id == props.id);
-  console.log(props.id);
+
   console.log(postLists);
   console.log("PostList", postList);
   return (
@@ -15,7 +15,7 @@ function UserPost(props) {
         {postList ? (
           <ul>
             {postList.map((post) => (
-              <li>{post.title}</li>
+              <Card key={post.id} name={post.title} email={post.body} />
             ))}
           </ul>
         ) : null}

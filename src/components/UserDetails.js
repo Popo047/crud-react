@@ -1,11 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Card from "../UI/Card";
 import UserPost from "./UserPost";
 
 function UserDetails(props) {
-  const dispatch = useDispatch();
   const { id } = useParams();
   const userDetails = useSelector((state) => state.crud.users);
 
