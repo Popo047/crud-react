@@ -24,6 +24,7 @@ function UserDetails(props) {
             gender={userDetail.gender}
             status={userDetail.status}
           />
+          <br />
           <UserPost id={id} />
         </>
       )}

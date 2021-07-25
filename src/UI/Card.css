@@ -1,0 +1,36 @@
+.card-container {
+  /* width: 500px; */
+  overflow: hidden;
+  padding: 0;
+  transition: 0.3s;
+  animation: ease-in;
+  background-color: white;
+  filter: brightness(96%);
+  margin-bottom: 25px;
+  margin-left: 400px;
+  /* border: 2px solid; */
+  border-radius: 20px;
+  box-shadow: 8px 7px 13px -1px rgba(5, 4, 4, 0.75);
+  -webkit-box-shadow: 8px 7px 13px -1px rgba(5, 4, 4, 0.75);
+  -moz-box-shadow: 8px 7px 13px -1px rgba(5, 4, 4, 0.75);
+}
+
+.card-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0px, 0px, 15px, -5px;
+}
+
+.card-content {
+  margin: 1rem;
+  margin-top: 0.5rem;
+}
+
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+}

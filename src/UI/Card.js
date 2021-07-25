@@ -1,8 +1,9 @@
 import React from "react";
+import "./Card.css";
 
 function Card(props) {
   return (
-    <div className="card container " style={{ maxWidth: "800px" }}>
+    <div className="card-container " style={{ maxWidth: "800px" }}>
       <div className="card-content">
         <div className="content">
           <h2>{props.name}</h2>

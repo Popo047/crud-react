@@ -13,6 +13,7 @@ function Users() {
 
   return (
     <>
+      <h1>UserLists</h1>
       <ul>
         {fetchedData.data ? (
           fetchedData.data.map((data) => (
