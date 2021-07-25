@@ -5,7 +5,9 @@ import Card from "../UI/Card";
 function UserPost(props) {
   const postLists = useSelector((state) => state.crud.posts);
 
-  const postList = postLists.data.filter((pId) => pId.user_id == props.id);
+  const postList = postLists.data.filter(
+    (pId) => pId.user_id.toString() === props.id
+  );
 
   console.log(postLists);
   console.log("PostList", postList);

@@ -10,7 +10,7 @@ function UserDetails(props) {
 
   const loading = useSelector((state) => state.crud.loading);
 
-  const userDetail = userDetails.data.find((ud) => ud.id == id);
+  const userDetail = userDetails.data.find((ud) => ud.id.toString() === id);
 
   return (
     <div>
