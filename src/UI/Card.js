@@ -1,6 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Card(props) {
+  Card.propTypes = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    gender: PropTypes.string,
+    status: PropTypes.string,
+  };
+
   return (
     <div
       className="card container "
@@ -16,7 +24,7 @@ function Card(props) {
         {props.email ? (
           <a href={`mailto:${props.email}`}>
             <span className="icon">
-              <i class="fas fa-envelope-square"></i>
+              <i className="fas fa-envelope-square"></i>
             </span>
           </a>
         ) : null}

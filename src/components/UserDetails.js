@@ -2,15 +2,18 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Card from "../UI/Card";
+import NewPost from "./NewPost";
 import UserPost from "./UserPost";
 
-function UserDetails(props) {
+function UserDetails() {
   const { id } = useParams();
   const userDetails = useSelector((state) => state.crud.users);
 
   const loading = useSelector((state) => state.crud.loading);
 
-  const userDetail = userDetails.data.find((ud) => ud.id.toString() === id);
+  const userDetail = userDetails.data.find((ud) => ud.id == id);
+
+  console.log(id);
 
   return (
     <div>
@@ -26,6 +29,7 @@ function UserDetails(props) {
           />
           <br />
           <UserPost id={id} />
+          <NewPost id={id} />
         </>
       )}
     </div>

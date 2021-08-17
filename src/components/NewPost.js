@@ -1,21 +1,22 @@
 import React, { useRef } from "react";
+import PropTypes from "prop-types";
 
 function NewPost(props) {
-  const idRef = useRef();
-  const userIdRef = useRef();
   const titleRef = useRef();
   const descriptionRef = useRef();
+  NewPost.propTypes = {
+    id: PropTypes.number,
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const enteredId = idRef.current.value;
-    const enteredUserId = userIdRef.current.value;
+    // const enteredId = false;
+    // const enteredUserId = userIdRef.current.value;
     const enteredTitle = titleRef.current.value;
     const enteredDesc = descriptionRef.current.value;
 
     const data = {
-      id: enteredId,
-      user_id: enteredUserId,
+      user_id: props.id,
       title: enteredTitle,
       body: enteredDesc,
     };
@@ -27,7 +28,7 @@ function NewPost(props) {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer 991f16ee2a02e95b9579c9167b32a435016cfd16ed7a0fc07149fe64a47c12d7",
+            "Bearer 3af7ae82ee050c05e004e19dc2524dc828de06c52d61fc0bed9cddc3ba1d9213",
         },
       }
     );
@@ -42,12 +43,6 @@ function NewPost(props) {
         className="container"
         style={{ maxWidth: "500px" }}
       >
-        <label htmlFor="" className="label">
-          USER_ID
-        </label>
-        <div className="control">
-          <input type="number" className="input" ref={userIdRef} />
-        </div>
         <label htmlFor="" className="label">
           Title{" "}
         </label>

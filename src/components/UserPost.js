@@ -1,19 +1,32 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import Card from "../UI/Card";
 
 function UserPost(props) {
-  const postLists = useSelector((state) => state.crud.posts);
+  const [posts, setPosts] = useState([]);
+  UserPost.propTypes = {
+    id: PropTypes.number,
+  };
 
-  const postList = postLists.data.filter(
-    (pId) => pId.user_id.toString() === props.id
+  useEffect(
+    () =>
+      fetch(`https://gorest.co.in/public/v1/users/${props.id}/posts`)
+        .then((response) => response.json())
+        .then((data) => setPosts(data.data)),
+    []
   );
+
+  console.log("Posts:", posts);
+
+  // const postLists = useSelector((state) => state.crud.posts);
+
+  // const postList = postLists.data.filter((pId) => pId.user_id == props.id);
   return (
     <>
       <div>
-        {postList ? (
+        {posts ? (
           <ul>
-            {postList.map((post) => (
+            {posts.map((post) => (
               <Card key={post.id} name={post.title} gender={post.body} />
             ))}
           </ul>
